@@ -1,0 +1,15 @@
+{
+  "extends": "tslint:recommended",
+  "rules":{
+    "no-console":{
+      "options": ["log"]
+    },
+    "trailing-comma": true,
+    "no-any": true,
+    "no-consecutive-blank-lines": true, 
+    "no-empty": true,
+    "indent": true,
+    "triple-equals": true,
+    "semicolon": true
+  }
+}
