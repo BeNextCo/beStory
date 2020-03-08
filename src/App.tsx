@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Event} from './components/Timeline/Timeline.type'
+import Timeline from "./components/Timeline/Timeline.component";
+
+// TODO: Remove this array when we'll receive data from DB
+const events: Event[] = [
+  {id: 1, name: 'Event 1', date: '13-10-1992', content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit...',},
+  {id: 2, name: 'Event 2', date: '13-10-1992', content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit...',},
+  {id: 3, name: 'Event 3', date: '13-10-1992', content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit...',},
+  {id: 4, name: 'Event 4', date: '13-10-1992', content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit...',},
+  {id: 5, name: 'Event 5', date: '13-10-1992', content: 'Lorem ipsum dolor sit amet consectetur adipiscing elit...',},
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Timeline events={events} />
   );
 }
 
