@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import * as firebase from 'firebase'
+import firebaseConfig from './config/firebase';
 import {Event} from './components/Timeline/Timeline.type'
 import Timeline from "./components/Timeline/Timeline.component";
 
@@ -12,6 +14,11 @@ const events: Event[] = [
 ];
 
 function App() {
+  useEffect(() => {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig)
+    }
+  }, []);
   return (
     <Timeline events={events} />
   );
