@@ -2,6 +2,7 @@ import React, {useState ,useEffect} from 'react';
 // import {Event} from './components/Timeline/Timeline.type'
 import Timeline from "./components/Timeline/Timeline.component";
 import axios from 'axios';
+import ParallaxContainer from "./components/ParallaxContainer/ParallaxContainer.component";
 
 
 function App() {
@@ -17,10 +18,14 @@ function App() {
 
   useEffect(() => {
     fetchEvents()
-  });
+  }, []);
 
   return (
-    <Timeline events={events} />
+      <>
+          {console.log('APP COMPONENT ========>')}
+        <Timeline events={events} />
+        <ParallaxContainer />
+      </>
   );
 }
 

@@ -11,7 +11,7 @@ const Event: FunctionComponent<EventProps> = ({event}) => {
         <EventStyled>
             <EventSection>
                 <Name>{event.name}</Name>
-                <Content>{event.content}</Content>
+                <Content>{event.description}</Content>
             </EventSection>
         </EventStyled>
     );
