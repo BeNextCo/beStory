@@ -1,4 +1,4 @@
-import { Parallax } from 'react-scroll-parallax';
+import RellaxWrapper from "react-rellax-wrapper";
 import React, {FunctionComponent} from 'react';
 
 // Variants components
@@ -25,19 +25,24 @@ class VariantComponent {
 interface ItemProps {
     parameters: {
         variant?: Variant
-        size: number,
+        left: number,
+        top: number,
+        speed: number,
     }
 }
 
 const Item: FunctionComponent<ItemProps> = ({parameters}) => {
-    const { variant, size } = parameters;
-    const VariantCmpnt = VariantComponent[variant || Variant.asteroid].component;
-    const parallaxOffset = {y: [`${size}px`, `${-size}px`]};
+    const { variant, left, top, speed } = parameters;
+    const VariantCmpnt:FunctionComponent<{style: object}> = VariantComponent[variant || Variant.asteroid].component;
+    const variantStyle = {
+        left: `${left}%`,
+        top: `${top}px`,
+    }
 
     return (
-       <Parallax y={parallaxOffset.y}>
-            <VariantCmpnt size={size} />
-       </Parallax>
+       <RellaxWrapper speed={speed} percentage={.5}>
+            <VariantCmpnt style={variantStyle} />
+       </RellaxWrapper>
     );
 }
 
