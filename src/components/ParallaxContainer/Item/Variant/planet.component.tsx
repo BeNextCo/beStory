@@ -1,14 +1,17 @@
 import React, {CSSProperties, FunctionComponent} from 'react';
+import { ReactComponent as Planet1 } from './img/planets/1.svg';
+import { ReactComponent as Planet2 } from './img/planets/2.svg';
+import { ReactComponent as Planet3 } from './img/planets/3.svg';
+import {randomIntFromInterval} from "../../../../helpers/utils";
 
 interface PlanetProps {
 }
 
 const Planet: FunctionComponent<PlanetProps> = () => {
-    const style = {width: '100%', height:'100%'} as CSSProperties;
-    const index = Math.floor(Math.random() * 3) + 1;
-    return (
-        <img src={`${process.env.PUBLIC_URL}/img/parallax-items/planets/${index}.svg`} />
-    );
+    const planets = [Planet1, Planet2, Planet3];
+    const index = randomIntFromInterval(0, 2);
+    const SelectedPlanet = planets[index];
+    return <SelectedPlanet/>;
 };
 
 export default Planet;

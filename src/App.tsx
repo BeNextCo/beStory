@@ -17,7 +17,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetchEvents()
+    fetchEvents();
   }, []);
 
   return (
