@@ -5,7 +5,7 @@ interface AsteroidProps {
 
 const Asteroid: FunctionComponent<AsteroidProps> = () => {
     return (
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        <svg style={{width: '100%', height:'100%'}} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
              viewBox="0 0 1200 1200" enable-background="new 0 0 1200 1200">
             <g>
                 <path fill="none" d="M725.025,878.32c-1.099,7.259-1.955,14.555-2.919,21.835c0,0,0-0.001,0.001-0.001

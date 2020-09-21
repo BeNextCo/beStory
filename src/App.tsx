@@ -3,7 +3,7 @@ import React, {useState ,useEffect} from 'react';
 import Timeline from "./components/Timeline/Timeline.component";
 import axios from 'axios';
 import ParallaxContainer from "./components/ParallaxContainer/ParallaxContainer.component";
-
+import Background from "./components/Background/Background.component";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -22,7 +22,7 @@ function App() {
 
   return (
       <>
-          {console.log('APP COMPONENT ========>')}
+        <Background/>
         <Timeline events={events} />
         <ParallaxContainer />
       </>

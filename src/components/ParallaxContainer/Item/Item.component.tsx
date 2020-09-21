@@ -1,8 +1,9 @@
 import RellaxWrapper from "react-rellax-wrapper";
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, CSSProperties} from 'react';
 
 // Variants components
-import {Planet, Asteroid} from './Variant'
+import {Planet, Asteroid} from './Variant';
+import {randomIntFromInterval} from "../../../helpers/utils";
 
 export enum Variant {
     planet = 'planet',
@@ -28,25 +29,33 @@ interface ItemProps {
         left: number,
         top: number,
         speed: number,
-    }
+    };
 }
 
 const Item: FunctionComponent<ItemProps> = ({parameters}) => {
-    const { variant, left, top, speed } = parameters;
-    const VariantCmpnt:FunctionComponent<{style: object}> = VariantComponent[variant || Variant.asteroid].component;
+    const { left, top, speed } = parameters;
+    const variant = parameters.variant || Variant.asteroid;
+    const VariantCmpnt:FunctionComponent = VariantComponent[variant].component;
+    const variantSizeBoundaries = {
+        planet: {min: 50, max: 250},
+        asteroid: {min: 70, max: 130},
+    } as Record<Variant, {min: number, max: number}>;
+    const size = randomIntFromInterval(variantSizeBoundaries[variant].min, variantSizeBoundaries[variant].max);
     const variantStyle = {
+        position: 'absolute',
         left: `${left}%`,
         top: `${top}px`,
-    }
+        width: `${size}px`,
+        height: `${size}px`,
+    } as CSSProperties;
 
     return (
        <RellaxWrapper speed={speed} percentage={.5}>
-            <VariantCmpnt style={variantStyle} />
+            <div style={variantStyle}>
+                <VariantCmpnt />
+            </div>
        </RellaxWrapper>
     );
-}
+};
 
 export default Item;
-
-
-

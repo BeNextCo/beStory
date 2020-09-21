@@ -1,5 +1,5 @@
 import {ParallaxProvider} from 'react-scroll-parallax';
-import React, {FunctionComponent} from 'react';
+import React, {CSSProperties, FunctionComponent} from 'react';
 import Item, {Variant} from './Item/Item.component';
 
 interface ParallaxContainerProps {
@@ -9,6 +9,12 @@ interface ParallaxContainerProps {
 //     return Math.floor(Math.random() * (max - min + 1)) + min;
 // };
 const itemsParams = [
+    {
+        variant: Variant.asteroid,
+        left: 50,
+        top: 0,
+        speed: -1,
+    },
     {
         variant: Variant.planet,
         left: 8,
@@ -52,7 +58,7 @@ const itemsParams = [
         speed: -4,
     },
     {
-        variant: Variant.asteroid,
+        variant: Variant.planet,
         left: 87,
         top: 350,
         speed: -5,
@@ -75,15 +81,23 @@ const itemsParams = [
 
 const ParallaxContainer: FunctionComponent<ParallaxContainerProps> = () => {
     // const yOff = getRandomInt(50, -100);
+    const styles = {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+    } as CSSProperties;
     return (
-        <ParallaxProvider>
-            {itemsParams.map((itemParams, i) => {
-                return (
-                    <Item parameters={itemParams} key={i} />
-                )
-            })}
-        </ParallaxProvider>
+        <div style={styles}>
+            <ParallaxProvider>
+                {itemsParams.map((itemParams, i) => {
+                    return (
+                        <Item parameters={itemParams} key={i} />
+                    );
+                })}
+            </ParallaxProvider>
+        </div>
     );
-}
+};
 
 export default ParallaxContainer;
