@@ -18,6 +18,7 @@ function App() {
 
   useEffect(() => {
     fetchEvents();
+    window.scrollTo(0, document.body.scrollHeight);
   }, []);
 
   return (

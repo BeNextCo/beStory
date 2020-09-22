@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #000;
+  height: 3363px; /* TODO: remove this shit*/
+  overflow-x: hidden;
 }
 
 code {
