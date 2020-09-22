@@ -11,7 +11,7 @@ interface TimelineProps {
 const Timeline: FunctionComponent<TimelineProps> = ({events}) => {
     return (
         <TimelineStyled>
-            { events.map((event) => <Event key={`timeline-event-${event.id}`} event={event} />)}
+            { events.map((event, index) => <Event key={`timeline-event-${event.id}`} event={event} index={index} />)}
             <Cursor/>
         </TimelineStyled>
     );
